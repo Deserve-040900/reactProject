@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col mr-2 w-100">
+                <form action="">
+                    <input type="radio" name="Câu" value="câu 1" id="cau01"> Câu 1
+                    <input type="radio" name="Câu" value="câu 2" id="cau02"> Câu 2
+                    <input type="radio" name="Câu" value="câu 3" id="cau03"> Câu 3
+                </form>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="trl1-tab" data-bs-toggle="tab" data-bs-target="#stm1" type="button" role="tab" aria-controls="home" aria-selected="true">Câu 1</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="trl2-tab" data-bs-toggle="tab" data-bs-target="#stm2" type="button" role="tab" aria-controls="profile" aria-selected="false">Câu 2</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="trl3-tab" data-bs-toggle="tab" data-bs-target="#stm3" type="button" role="tab" aria-controls="messages" aria-selected="false">Câu 3</button>
+                  </li>
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div class="tab-pane active" id="stm1">
+                    <b>Câu 1: Khi truy cập vào một trang web (VD: https://geekadventure.vn) trình duyệt sẽ làm gì ?</b>
+                    <p>Khi truy cập vào trang web, trình duyệt sẽ gọi tới máy chủ DNS để biên dịch URL trang web thành một địa chỉ IP, mỗi trang web có địa chỉ IP riêng biệt. Khi tìm thấy địa chỉ IP của trang web chúng ta đang truy cập vào, thì địa chỉ IP đó sẽ được trả về cho trình duyệt.<br>
+                      Trình duyệt sẽ sử dụng địa chi IP đó để yêu cầu HTTP gọi tới Server lưu trữ trang web đó. Nó sẽ kết nối port 80 trên Server bằng giao thức TCP/IP.<br>
+                      Nếu Server chấp nhận thì sẽ gửi lại thông báo "200 OK". Và sau đó trình duyệt sẽ truy xuất mã HTML của trang web cụ thể được yêu cầu.<br>
+                      Khi trình duyệt nhận được mã HTML đó từ Server thì nó sẽ hiển thị ra cửa sổ của trình duyệt một trang web hoàn chỉnh<br>
+                      Khi đóng trình duyệt thì quá trình kết nối với Server sẽ kết thúc.</p>
+                  </div>
+                  <div class="tab-pane" id="stm2">
+                    <b>Câu 1: Khi truy cập vào một trang web (VD: https://geekadventure.vn) trình duyệt sẽ làm gì ?</b>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                  </div>
+                  <div class="tab-pane" id="stm3">
+                    <b>Câu 1: Khi truy cập vào một trang web (VD: https://geekadventure.vn) trình duyệt sẽ làm gì ?</b>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col mr-2 w-100">
+              <form action="">
+                <input type="radio" name="Câu" value="câu 1" id="cau01"> Câu 1
+                <input type="radio" name="Câu" value="câu 2" id="cau02"> Câu 2
+                <input type="radio" name="Câu" value="câu 3" id="cau03"> Câu 3
+              </form>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="trl1-tab" data-bs-toggle="tab" data-bs-target="#stm1" type="button" role="tab" aria-controls="home" aria-selected="true">Câu 1</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="trl2-tab" data-bs-toggle="tab" data-bs-target="#stm2" type="button" role="tab" aria-controls="profile" aria-selected="false">Câu 2</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="trl3-tab" data-bs-toggle="tab" data-bs-target="#stm3" type="button" role="tab" aria-controls="messages" aria-selected="false">Câu 3</button>
+                </li>
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="stm1">
+                  <b>Câu 2: Nếu có 2 CSS selector cùng ứng với 1 element thì style của element sẽ thể hiện như thế nào?</b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                </div>
+                <div class="tab-pane" id="stm2">
+                  <b>Câu 2: Nếu có 2 CSS selector cùng ứng với 1 element thì style của element sẽ thể hiện như thế nào?</b>
+                  <p>Có nhiều cách nhúng CSS - Cascading Style Sheets
+                    <ul>
+                      <li><b>inline</b> nhúng trực tiếp vào phần tử tag HTML bằng việc sử dụng thuộc tính style</li>
+                      <li><b>internal</b> tạo các bộ chọn trực tiếp trên head trang bằng cách đặt trong thẻ <style></style></li>
+                      <li><b>external</b> tạo file css nằm riêng và sử dụng thẻ <link> để nhúng vào trang</li>
+                    </ul>
+                    Nếu có 2 CSS selector cùng ứng với 1 element thì style của element sẽ thể hiện theo thứ tự ưu tiên chịu tác động bởi nhiều rule khác nhau:
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>Các dạng rule</th>
+                          <th>Thứ tự ưu tiên</th>
+                          <th>Phạm vi tác động</th>
+                        </tr>
+                        <tr>
+                          <td>Inline</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr>
+                          <td>Id</td>
+                          <td>2</td>
+                          <td>3</td>
+                        </tr>
+                        <tr>
+                          <td>Class</td>
+                          <td>3</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>Tag</td>
+                          <td>4</td>
+                          <td>1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    Thứ tự ưu tiên tỉ lệ nghịch với phạm vi tác động. Dạng rule có phạm vi tác động càng cao thì ưu tiên càng thấp, ngược lại dạng rule có phạm vi tác động càng thấp thì ưu tiên càng cao.
+                  </p>
+                </div>
+                <div class="tab-pane" id="stm3">
+                  <b>Câu 2: Nếu có 2 CSS selector cùng ứng với 1 element thì style của element sẽ thể hiện như thế nào?</b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mr-2 w-100">
+              <form action="">
+                <input type="radio" name="Câu" value="câu 1" id="cau01"> Câu 1
+                <input type="radio" name="Câu" value="câu 2" id="cau02"> Câu 2
+                <input type="radio" name="Câu" value="câu 3" id="cau03"> Câu 3
+              </form>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="trl1-tab" data-bs-toggle="tab" data-bs-target="#stm1" type="button" role="tab" aria-controls="home" aria-selected="true">Câu 1</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="trl2-tab" data-bs-toggle="tab" data-bs-target="#stm2" type="button" role="tab" aria-controls="profile" aria-selected="false">Câu 2</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="trl3-tab" data-bs-toggle="tab" data-bs-target="#stm3" type="button" role="tab" aria-controls="messages" aria-selected="false">Câu 3</button>
+                </li>
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="stm1">
+                  <b>Câu 3</b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                </div>
+                <div class="tab-pane" id="stm2">
+                  <b>Câu 3</b>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, illum! Asperiores, labore. Laborum, delectus. Hic commodi molestiae quidem deserunt nostrum vel quibusdam exercitationem, enim fuga magnam quaerat accusamus obcaecati expedita?</p>
+                </div>
+                <div class="tab-pane" id="stm3">
+                  <b>Câu 3: Callback và Promise trong javascript dùng để làm gì? </b>
+                  <p>Callback là một hàm được truyền dưới dạng đối số cho một hàm khác, kỹ thuật này cho phép hàm A gọi một hàm B, hàm A gọi lại có thể chạy sau khi hàm B kết thúc
+                    <br>Khái niệm Promise ra đời để giải quyết vấn đề Callback hell phía trên, nó giúp việc xử lý bất đồng độ trở nên dễ dàng, dễ code và dễ debug hơn khi chỉ sử dụng callback.
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <script src="../jq/jquery.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+</body>
+</html>
