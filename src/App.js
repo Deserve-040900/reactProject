@@ -6,7 +6,6 @@ import { useAuth } from './shared/hooks/auth-hook';
 import Navigation from './Components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
 import Home from './Pages/Home';
-import Footer from './Components/Navigation/Footer';
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -53,7 +52,6 @@ function App() {
       <Router>
         <Navigation />
         <main>{routes}</main>
-        <Footer/>
       </Router>
     </AuthContext.Provider>
   );

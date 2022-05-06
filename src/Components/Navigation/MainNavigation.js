@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import Header from './Header';
 import Navbar from './NavLink';
 import SideDrawer from './SlideDrawer';
 import './MainNavigation.css';
 import Backdrop from '../UIElement/Backdrop';
+import Footer from './Components/Navigation/Footer';
 
 const MainNavigation = (props) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -43,6 +44,10 @@ const MainNavigation = (props) => {
             <Navbar />
           </nav>
         </Header>
+
+        <Outlet/>
+        
+        <Footer/>
       </React.Fragment>
     );
   };
