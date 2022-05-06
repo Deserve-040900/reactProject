@@ -6,9 +6,12 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +37,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "devDependencies": {
+    "react-router-dom": "^6.3.0"
   }
 }

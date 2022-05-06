@@ -1,0 +1,19 @@
+@media (min-width: 768px) {
+    .main-header {
+        justify-content: space-between;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #0099ff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+    padding: 0 1rem;
+    z-index: 5;
+}
