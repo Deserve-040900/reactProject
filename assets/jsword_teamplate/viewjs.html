@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Only Javascript & HTML5 Document Platform | DOCXJS</title>
+    <meta name="description" content="DOCXJS is the only Javascript based docx documents platform - provide with extracting data, HTML5 viewer, creating document online and offline">
+    <meta name="content" content="docxjs, docx, html5 document, only javascript document, html5 docx, only javascript docx, html5 document tool, extracting document, html5 document viewer, creating document, dev tool, extracting docx, html5 docx viewer, creating docx">
+    <meta name="author" content="DOCXJS">
+    <link href="css/docxjs.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/docxjs-1.0.0.min.js"></script>
+
+</head>
+<body style="overflow: hidden;">
+<input id="files" type="file" name="files[]" multiple="false">
+<div id="loaded-layout" style="width:100%;height:800px;">
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    //Input File
+  var $files = $('#files');
+
+  //File Change Event
+  $files.on('change', function (e) {
+
+    //File Object Information
+    var files = e.target.files;
+
+    //Create DocxJS
+    var docxJS = new DocxJS();
+
+    //File Parsing
+    docxJS.parse(
+      files[0],
+      function () {
+        //After Rendering
+        docxJS.render($('#loaded-layout')[0], function (result) {
+          if (result.isError) {
+            console.log(result.msg);
+          } else {
+            // console.log("Success Render");
+          }
+        });
+      }, function (e) {
+        // console.log("Error!", e);
+      }
+    );
+  });
+});
+</script>
+
+</html>

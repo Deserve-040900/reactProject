@@ -1,0 +1,88 @@
+jQuery(document).ready(function($) {
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    $('.formCrm').submit(function(event){
+        event.preventDefault();
+
+        let curentUser = $(this).find('input[name="curentUser"]').length >= 1 ? $(this).find('input[name="curentUser"]').get(0).value : 0, urlrequest = spwao_ajax_object.ajax_url, keystaff = '';
+        let sendButtonForm = $(this).find('.buttonSubmitCRM'), resultForm =  $(this).find('.result'), loaderForm =  $(this).find('.loader');
+        let redirectUrl = $(this).find('.redirectUrl') ? $(this).find('.redirectUrl').data('redirect') : '';
+        let successMessage = $(this).find('.message').data('success') ? $(this).find('.message').data('success') : '<b>Thông báo:</b> đã gửi liên hệ thành công!';
+        let errorMessage = $(this).find('.message').data('error') ? $(this).find('.message').data('error') : '<b>Thông báo:</b> đã gửi liên hệ thất bại.';
+        let requiredFieldMessage = $(this).find('.message').data('requiredField') ? $(this).find('.message').data('requiredField') : '<b>Thông báo:</b> trường này là bắt buộc.';
+        let invalidMessage = $(this).find('.message').data('invalid') ? $(this).find('.message').data('invalid') : '<b>Thông báo:</b> Nội dung không hợp lệ.';
+        let loadingMessage = $(this).find('.message').data('loading') ? $(this).find('.message').data('loading') : 'Đang gửi...';
+
+        let sendButtonText = sendButtonForm.text();
+        let listNameDOM = $(this).find('.elementor-field-label');
+        let listName = [], encodeURIValue = '';
+        for (let i = 0; i < listNameDOM.length; i++) {listName.push(listNameDOM[i].innerText);}
+        let valueCookieAFID = getCookie("af_id");
+        jQuery('.cookieAFID').val(valueCookieAFID);
+        let self = this;
+        //wait 500ms to set value cookieAFID to form
+        setTimeout(function() {
+            let dataForm = new FormData(self);
+            dataForm.append('listNameInput', listName.toString());
+            let note = [];
+            if(curentUser === '52' || curentUser === '68' || curentUser === '80') {
+                keystaff = 'atpsimplepage@1231234';
+                urlrequest = DOMAIN_STAFF + '/forms/wtl/' + keystaff;
+                dataForm.append('key', keystaff);
+                dataForm.append('name', dataForm.get('form_fields[name]'));
+                dataForm.append('phonenumber', dataForm.get('form_fields[phone]'));
+                dataForm.append('email', dataForm.get('form_fields[email]'));
+                dataForm.append('company', dataForm.get('projectLink'));
+                dataForm.append('af_id', dataForm.get('af_id'));
+                dataForm.append('status', '8');
+                dataForm.append('lead_source', '11');
+                for (var keyform of dataForm.keys()) {
+                    if(keyform.includes('form_fields')){
+                        note.push(keyform.replace('form_fields','')+':'+dataForm.get(keyform));
+                    }
+                }
+                dataForm.append('form-cf-1', note.join(' | '));
+            }
+            $.ajax({
+                type: 'POST',
+                url: urlrequest,
+                data : dataForm,
+                processData: false,
+                contentType: false,
+                dataType: 'text',
+                beforeSend: () => {
+                    resultForm.html('').removeClass('elementor-message elementor-message-success elementor-message-danger');
+                    sendButtonForm.text(loadingMessage).css('opacity','0.5').attr('disabled','true');
+                },
+                success : function(result) {
+                    try {
+                        result = JSON.parse(result);
+                        if (result && result.redirectUrl) {
+                            if(result.encodeURIValue) {
+                                encodeURIValue = result.encodeURIValue.replaceAll('%5C','');
+                                window.location.href = result.redirectUrl+encodeURIValue;
+                            } else {
+                                window.location.href = result.redirectUrl;
+                            }
+                        } else {
+                            console.log(result); // bỏ
+                            sendButtonForm.text(sendButtonText).removeAttr('disabled').css('opacity', '1');
+                            resultForm.addClass('elementor-message elementor-message-success').html(successMessage);
+                        }
+                    } catch(e) {
+                        sendButtonForm.text(sendButtonText).removeAttr('disabled').css('opacity', '1');
+                        resultForm.addClass('elementor-message elementor-message-success').html(successMessage);
+                    }
+                },
+                error: function(ResultError) {
+                    console.log(ResultError);
+                    sendButtonForm.text(sendButtonText).removeAttr('disabled').css('opacity','1');
+                    resultForm.addClass('elementor-message elementor-message-danger').html(errorMessage);
+                },
+            });
+        }, 500);
+    });
+});

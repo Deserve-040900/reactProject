@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+<head>
+  <title>Officebar example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.ribbon.css" />
+   <link rel="stylesheet" type="text/css" media="screen" href="css/dhtmlxOfficeBar.css" />
+  <style type="text/css">
+  * { padding: 0; margin: 0; }
+
+  body {
+    background: url(images/img01.jpg) repeat-x left top;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    height:800px;
+  }
+  </style>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.officebar.js"></script>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+    $(document).ready(function() {
+      $("#myTab").officebar({
+        onSelectTab:           function(e) { $("#log").append("tab clicked: "+e.rel+"<br/>"); },
+        onBeforeShowSplitMenu: function(e) { $("#log").append("before split open: "+e.rel+"<br/>"); },
+        onAfterShowSplitMenu:  function(e) { $("#log").append("after split open: "+e.rel+"<br/>"); },
+        onAfterHideSplit:      function(e) { $("#log").append("split menu closed<br/>"); },
+        onShowDropdown:        function(e) { $("#log").append("opened dropdown: "+e.rel+"<br/>"); },
+        onHideDropdown:        function(e) { $("#log").append("closed dropdown: "+e.rel+"<br/>"); },
+        onClickButton:         function(e) { $("#log").append("clicked on: "+e.rel+"<br/>"); }
+        })
+
+        //$("#testRibbon").officebarBind("textboxes", function(e) { $("#log").append("custom bind on textboxes tab<br/>"); } );        
+        //$("#testRibbon").officebarBind("home>blablabutton", function(e) { $("#log").append("custom bind on blablabutton<br/>"); } );
+       // $("#testRibbon").officebarBind("insert>new", function(e) { $("#log").append("custom bind on new<br/>"); } );
+      }
+    );
+  /* ]]> */
+  </script>
+</head>
+<body>
+<div class="headOffice">
+	
+    <div class="logOff">
+      <button class="btn-logo" onclick="messenge();">
+        <div class="stylist-logo"></div>
+      </button>
+      <div class="color-oval">
+      <div class="small-bar">
+      	  <div class="nav-item">
+			        	<div class="color"><a href="#" rel="/Controls/dhtmlxG9hotel/css/red.css" class="red" title="Ä�á»�"><div class="dot"></div></a><a href="#" rel="/Controls/dhtmlxG9hotel/css/brown.css" class="brown" title="NĂ¢u"><div class="dot"></div></a><a href="#" rel="/Controls/dhtmlxG9hotel/css/white.css" class="white" title="XĂ¡m tráº¯ng"><div class="dot"></div></a><a href="#" rel="/Controls/dhtmlxG9hotel/css/green.css" class="green" title="Xanh"><div class="dot"></div></a><a href="#" rel="/Controls/dhtmlxG9hotel/css/blue.css" class="blue" title="Xanh dÆ°Æ¡ng"><div class="dot"></div></a></div>
+	   </div>
+      </div>
+      <div class="oval"></div>
+      </div>
+      <div id="dvLang"></div>
+      
+      <div class="progname">Quáº£n LĂ½ BĂ¡n HĂ ng</div>
+      <div class="header-info">
+		                    <b><div id="dv_user_name" style="display:inline;">Quyá»�n tá»‘i cao</div></b><div id="dv_exit" onclick="location.href=location.href;" style="display: initial;">Exit</div>
+			            
+	</div>
+      <div class="clear-fix"></div>
+    </div>
+  </div>
+  <div id="myTab" class="officebar"><ul>
+  <li class="thirdmenu current" >
+        <a href="#" rel="home">Home</a>
+        <ul>
+          <li>
+            <span>Clipboard</span>
+            <div class="button split">
+              <a href="#" rel="paste">
+                <img src="images/paste32.png" alt="" /><span>Paste</span>
+              </a>
+              <div>
+                <ul>
+                  <li class="menutitle">Paste options</li>
+                  <li><a href="#"><img src="images/paste16.gif" alt="" />Paste</a></li>
+                  <li><a href="#">Paste special...</a></li>
+                  <li class="separator"><a href="#"><img src="images/link16.gif" alt="" />Paste link</a></li>
+                  <li class="menutitle">Clipboard options</li>
+                  <li><a href="#">Clear clipboard</a></li>
+                  <li><a href="#"><img src="images/pasteall16.gif" alt="" />View clipboard content</a></li>
+                  <li><a href="#">Another</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="button">
+              <a href="#" rel="textbutton">Plain text button</a>
+            </div>
+            <div class="button list">
+              <ul>
+                <li><a href="#"><img src="images/copy16.gif" alt="" /></a></li>
+                <li><a href="#"><img src="images/cut16.gif" alt="" /></a></li>
+                <li><a href="#"><img src="images/copyformat16.gif" alt="" /></a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span>Drawing</span>
+            <div class="button">
+              <a href="#" rel="table"><img src="images/drawtools32.png" alt="" />Tools</a>
+            </div>
+          </li>
+          <li>
+            <span>Empty panel</span>
+          </li>
+        </ul>
+      </li>
+  <li class="thirdmenu" onclick='return false;' ><a href="#" rel="#dv20141110230624829">Test</a>
+    <ul>
+    	<li><span>&nbsp;</span>
+      <div class="button split" id="test1"><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>Test1</span></a>
+        <div>
+          <ul>
+              <li onclick='menucallpage("20141110230759654","1","","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>1</span></a>
+                  
+                 </li>
+            </ul>
+        </div>
+      </div>
+  </li>
+     </ul>
+ </li>
+  <li  class='thirdmenu'  onclick='return false;' ><a href="#" rel="#dv20140520110317703"> Danh má»¥c</a>
+  <ul>
+  <li><span>&nbsp;</span>
+    	<div class="button split"><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>Test1</span></a>
+        <div>
+        	<ul>
+            	<li onclick='menucallpage("20141110230759654","1","","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>1</span></a>
+                	
+                 </li>
+            </ul>
+        </div>
+      </div>
+  </li>
+   <li><span>&nbsp;</span>
+     	<div class="button split">
+          <a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>Báº£ng giĂ¡</span></a>
+        	<div>
+            	<ul>
+            	<li onclick='menucallpage("{2013-11-11-12-35-52-77}","GiĂ¡ mua","knk_dongia","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>GiĂ¡ mua</span></a></li>
+                <li onclick='menucallpage("{2013-11-11-12-38-37-48}","GiĂ¡ bĂ¡n","knk_dongia_sx","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>GiĂ¡ bĂ¡n</span></a></li>
+              </ul>
+          </div>
+       </div>
+    </li>
+   <li><span>&nbsp;</span>
+   	<div class="button split"><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>Báº£ng giĂ¡</span></a>
+      	<div>
+          	<ul>
+          	<li onclick='menucallpage("{2013-11-11-12-35-52-77}","GiĂ¡ mua","knk_dongia","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>GiĂ¡ mua</span></a></li>
+              <li onclick='menucallpage("{2013-11-11-12-38-37-48}","GiĂ¡ bĂ¡n","knk_dongia_sx","0","","","0","","","3","1");' ><a href="#"><img src="Controls/dhtmlxOfficebar/images/image32.png" alt="" /><span>GiĂ¡ bĂ¡n</span></a></li>
+              </ul>
+          </div>
+     </div>
+    </li>
+</ul>
+</li>
+
+</ul></div>	<link rel="stylesheet" type="text/css" media="screen" href="Controls/dhtmlxOfficebar/css/jquery.ribbon.css" />
+   <link rel="stylesheet" type="text/css" media="screen" href="Controls/dhtmlxOfficebar/css/dhtmlxOfficeBar.css" />
+			<link rel="stylesheet" href="Controls/dhtmlxOfficebar/css/ionicons.css">
+  
+<!-- begin olark code -->
+<script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
+f[z]=function(){
+(a.s=a.s||[]).push(arguments)};var a=f[z]._={
+},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){
+f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={
+0:+new Date};a.P=function(u){
+a.p[u]=new Date-a.p[0]};function s(){
+a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){
+hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){
+return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){
+b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{
+b.contentWindow[g].open()}catch(w){
+c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{
+var t=b.contentWindow[g];t.write(p());t.close()}catch(x){
+b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt()})({
+loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]});
+/* custom configuration goes here (www.olark.com/documentation) */
+olark.identify('5365-114-10-3731');/*]]>*/</script><noscript><a href="https://www.olark.com/site/5365-114-10-3731/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by <a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
+<!-- end olark code -->
+<script>
+olark('api.box.shrink');
+olark('api.box.hide');
+olark('api.visitor.updateEmailAddress', {emailAddress: uid+"@gmail.com"});
+olark('api.chat.updateVisitorNickname', { 
+snippet: uid 
+});
+var flagm= true;
+function messenge(){
+    if(flagm==true)
+    {
+        olark('api.box.expand');
+        olark('api.box.show');
+        flagm= false;
+    }
+    else{
+        olark('api.box.shrink');
+        olark('api.box.hide');
+        flagm=true;
+    }
+}
+</script>
+  <div id="log" style="width: 400px; border:1px solid black">
+  </div>
+</body>
+</html>

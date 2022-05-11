@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo of docxtemplater</title>
+	<link rel="stylesheet" href="main.css">
+
+	<!-- Mandatory js for the library to work -->
+
+	<script src="vendor/docxtemplater-latest.js"></script>
+	<script src="vendor/jszip.js"></script>
+	<script src="vendor/file-saver.min.js"></script>
+	<script src="vendor/jszip-utils.js"></script>
+
+	<!--
+	Mandatory in IE 6, 7, 8 and 9.
+	-->
+	<!--[if IE]>
+	<script type="text/javascript" src="../vendor/jszip-utils-ie.js"></script>
+	<![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+	var loadFile=function(url,callback){
+	    JSZipUtils.getBinaryContent(url,function(err,data){
+			callback(null,data)
+	    });
+	}
+	loadFile("tag-formating.docx",function(err,content){
+		var zip = new JSZip(content);
+		var doc=new Docxtemplater().loadZip(zip)
+		doc.setData({
+		"first_name":"Hipp",
+		"last_name":"Edgar",
+		"phone":"0652455478",
+		"description":"New Website"
+		}); //set the templateVariables
+		doc.render() //apply them (replace all occurences of {first_name} by Hipp, ...)
+		var output=doc.getZip().generate({type:"blob"}) //Output the document using Data-URI
+		saveAs(output,"output.docx")
+	});
+</script>
+</body>
+</html>

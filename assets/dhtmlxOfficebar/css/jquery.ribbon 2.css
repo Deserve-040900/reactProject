@@ -1,0 +1,606 @@
+div.officebar {
+  /*background: linear-gradient(rgba(255, 255, 255, 1) 0%,#50BA62 50%,#005F10 100%);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 1) 0%,#50BA62 50%,#005F10 100%);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 1) 0%,#50BA62 50%,#005F10 100%);*/
+  /* margin: 3px; */
+  float: none;
+  font-size: 93%;
+  line-height: normal;
+  width: 100%;
+  height: 32px;
+}
+#my_ribbon{
+  width: auto;
+  margin: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  border-top: none;
+}
+div.officebar ul {
+  margin: 0;
+  padding: 10px 10px 0;
+  height: 116px;
+  overflow: hidden;
+  list-style: none;
+}
+
+div.officebar ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  margin-left: 6px;
+}
+
+div.officebar a {
+  color:#776655;
+  display:block;
+  float:none;
+  padding: 5px 11px 0px 11px;
+  text-decoration:none;
+  cursor:default;
+}
+div.officebar>ul>li>a {
+  display:block;
+  float:none;
+  padding: 5px 11px 0px 11px;
+  text-decoration:none;
+  cursor:pointer;
+  position: relative;
+  height: 26px; 
+  top: -2px;
+  white-space: pre;
+}
+div.officebar a:hover {
+  color:#15428B;
+}
+
+div.officebar a {
+  outline:expression(hideFocus='true');
+  outline:0;
+}
+
+div.officebar :focus {
+  -moz-outline-style: none;
+}
+
+/*div.officebar ul li:hover {
+  background: transparent url(images/tab_left_over.gif) no-repeat scroll left top;
+  color: #15428B;
+}*/
+div.officebar ul li.current {
+  /* background-image: url(images/tab_left.gif); */
+  background: transparent;
+  /* color: #fff; */
+}
+
+div.officebar>ul>li>a:hover{
+  /* background: transparent url(images/tab_right.gif) no-repeat scroll right top; */
+  padding: 5px 11px 0px 11px;
+  /* background: #fff; */
+  text-align: center;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.18);
+  color: #FFF;
+  /* top: 3px; */
+}/*
+div.officebar ul li:hover a {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid #9C9C9C !important;
+  border-radius: 4px !important;
+  line-height: 18px !important;
+  bottom: 3px !important;
+  text-shadow: 0px 1px 1px #000 !important;
+}*/
+div.officebar>ul>li.current>a,div.officebar>ul>li.current>a:hover {
+/* background: transparent url(images/tab_right.gif) no-repeat scroll right top; */
+color: #000;
+font-weight: bold;
+padding: 5px 11px 0px 11px;
+border: 1px solid rgba(181, 181, 181, 1);
+/* background: #fff; */
+border-bottom: 1px solid rgba(255, 255, 255, 0);
+text-align: center;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+z-index: 7;
+background-color: #FFF;
+background: white;
+/* top: 3px; */
+position: relative;
+}
+div.officetab {
+/* background: #000000 url(images/bg.png) repeat-x scroll center top; */
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: default;
+  position: absolute;
+  left: 0px;
+  top: 33px;
+  width: calc(100%);
+  width: calc(100% - 6px);
+/*  height: 95px;*/
+    height: 0px;
+  z-index: 1;
+  margin-left: 3px;
+  margin-right: 3px;
+  display: none;
+}
+.showdiv div.officetab{
+    height: 95px !important;
+}
+div.officetab ul {
+  background: #fff;
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:10px 10px 0;
+  padding:0;
+  clear:both;
+  z-index:2;
+  border: 0px none;
+}
+/*.dhx_tabbar_zone_dhx_web .dhx_tabcontent_zone{
+  background: radial-gradient(#CDFFC6 ,#118F00);
+  background: -moz-radial-gradient(#CDFFC6 ,#118F00);
+  background: -webkit-radial-gradient(#CDFFC6 ,#118F00);
+}
+.dhtmlx_winviewport.dhtmlx_skin_dhx_web div.dhx_toolbar_base_dhx_web, .dhxlayout_fullscreened div.dhx_toolbar_base_dhx_web, .dhx_tabbar_zone.dhx_tabbar_zone_dhx_web div.dhx_toolbar_base_dhx_web, .dhx_acc_base_dhx_web div.dhx_toolbar_base_dhx_web, .dhtmlx_skin_dhx_web div.dhtmlx_window_active div.dhx_toolbar_base_dhx_web, .dhtmlx_skin_dhx_web div.dhtmlx_window_inactive div.dhx_toolbar_base_dhx_web, table.dhtmlxLayoutPolyContainer_dhx_web td.dhtmlxLayoutSinglePoly div.dhx_toolbar_base_dhx_web div.gridbox_dhx_web.gridbox .odd_dhx_web{
+  background: -moz-linear-gradient(#B0E0A7,#2C9B44);
+  background: -webkit-linear-gradient(#B0E0A7,#2C9B44);
+  background: linear-gradient(#B0E0A7,#2C9B44);
+}
+.div.gridbox_dhx_web.gridbox .xhdr{
+  background-color: #3F7240;
+  background: #3F7240;
+}
+div.gridbox table.hdr td {
+background: rgba(28, 93, 52, 1) !important;
+color: rgb(255, 255, 255) !important;
+}
+div.gridbox_dhx_web.gridbox .xhdr{
+  border-bottom: none;
+}
+table.dhtmlxLayoutPolyContainer_dhx_web div.dhxcont_sb_container_layoutcell div.dhxcont_statusbar{
+  background: -moz-linear-gradient(#B0E0A7,#2C9B44);
+  background: -webkit-linear-gradient(#B0E0A7,#2C9B44);
+  background: linear-gradient(#B0E0A7,#2C9B44);
+}*/
+div.officetab ul li, div.officetab ul li:hover {
+  float:left;
+  margin:0 0 0 3px;
+  padding:0px;
+}
+.button>a>span {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  /* -webkit-box-orient: vertical; */
+  box-orient: vertical;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  width: 59px;
+  height: 29px;
+  margin: auto;
+  text-align: center;
+}
+div.officetab div.panel {
+  /*background: transparent url(images/panel_right.gif) no-repeat scroll right top; */
+/*  background: linear-gradient(#BEFFC2 0%,#86DA8A 17%, #56B058 81%, #FFFFFF 81%, #187418 82%, #206C20 100%);
+  background: -moz-linear-gradient(#BEFFC2 0%,#86DA8A 17%, #56B058 81%, #FFFFFF 81%, #187418 82%, #206C20 100%);
+  background: -webkit-linear-gradient(#BEFFC2 0%,#86DA8A 17%, #56B058 81%, #FFFFFF 81%, #187418 82%, #206C20 100%);*/
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.68);
+  box-shadow: inset 1px 1px 1px 0px #fff;
+  float: none;
+  padding: 70px 12px 1px 6px;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0px;
+  margin-top: 3px;
+  border-radius: 4px;
+}
+.panel>span {
+display: block;
+font-size: 12px;
+font-weight: bold;
+}
+div.officetab li span {
+  display: block;
+}
+
+/* === BUTTON SPLIT MENU === */
+div.buttonsplitmenu {
+  position: fixed;
+  background: #FFFFFF;
+  border: 1px solid #868686;
+  z-Index: 2000;
+  width: auto;
+  display: block;
+}
+
+div.buttonsplitmenu ul {
+  padding: 0;
+  margin: 0;
+  color: #15428B;
+  background: transparent;
+  height: auto;
+  width: auto;
+  /* width: 200px; /* TODO */
+}
+
+div.buttonsplitmenu ul li {
+  float: none;
+  padding: 0px 2px 2px 0;
+  margin: 0 0 0 2px;
+  line-height: 20px;
+  width: 100%;
+  height: auto;
+  padding: 6px;
+  vertical-align: middle;
+}
+
+div.buttonsplitmenu li.separator {
+}
+
+div.buttonsplitmenu li.menutitle {
+  background-color: #DAE6EE;
+  border-bottom: 1px solid #C5C5C5;
+  font-weight: bold;
+  padding-left: 2px;
+  margin-left: 0;
+  line-height: 20px;
+  height: 20px;
+	vertical-align: middle;
+}
+
+div.buttonsplitmenu li img {
+ margin-left: -25px; */
+margin-right: 8px;
+vertical-align: bottom;
+border: 0;
+float: left;
+position: relative;
+}
+div.buttonsplitmenu ul li a>span:after {
+content: "";
+clear: both;
+padding: 0;
+margin: 0;
+}
+div.buttonsplitmenu  ul li a {
+  border-top: 1px solid transparent;
+  /* margin: 0 0 0 26px; */
+  padding: 0;
+  /* line-height: 20px; */
+  word-wrap: break-word;
+}
+
+div.buttonsplitmenu ul li a:hover {
+  background: #000;
+  color: #fff;
+}
+
+div.buttonsplitmenu  ul li a>span {
+   /* padding-left: 22px; */
+  /* margin-left: -20px; */
+  /* margin-right: 8px; */
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  /* float: left; */
+  line-height: 17px;
+  position: relative;
+
+}
+div.buttonsplitmenu ul li a>span>span{
+  float: left;
+}
+div.buttonsplitmenu ul li.separator a {
+  border-top: 1px solid #C5C5C5;
+}
+
+div.buttonsplitmenu ul li:hover{
+  background: #000;
+  color: #fff;
+}
+
+div.buttonsplitmenu ul li.menutitle:hover {
+  background: #DAE6EE none;
+}
+
+div.buttonsplitmenu ul li.resize {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #C5C5C5;
+  background: #DAE6EE url(images/resize_bg.png) repeat-x scroll top right;
+  height: 10px;
+  line-height: 10px;
+  font-size: 1px;
+}
+
+div.buttonsplitmenu ul li.resize span {
+  background: transparent url(images/resize.gif) no-repeat scroll top right;
+  height: 10px;
+  width: 10px;
+  display: block;
+  float: right;
+  cursor: se-resize;
+}
+.iw-cm-menu a:after{
+  content: "";
+  clear: both;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.iw-cm-menu a{
+  width: 100%;
+  color: #fff;
+}
+.iw-cm-menu img{
+  display: block;
+  float: left;
+  width: 20px;
+}
+.iw-cm-menu{
+  background: rgba(0, 0, 0, 0.57) ;
+}
+.iw-cm-menu span{
+  display: block;
+  float: left;
+  margin-left: 5px;
+}
+.ion-arrow-down-b{
+  padding: 0;
+position: absolute;
+bottom: 35px;
+right: 0px;
+}
+/* === BUTTONS === */
+div.officetab li div.button {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  float: left;
+  top: 0px;
+  padding-top: 39px;
+  left: 0px;
+  height: 69px;
+  width: 62px;
+  border: 1px solid #transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  /* -webkit-line-clamp: 2; */
+  line-clamp: 2;
+  /* -webkit-box-orient: vertical; */
+  box-orient: vertical;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+div.officetab li div.list, div.officetab li div.textlist {
+  width: auto;
+}
+
+div.officetab li div.list div {
+  float: left;
+}
+
+div.officetab li div.button ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  z-index: 2;
+  clear: both;
+}
+
+  div.officetab li div.list ul {
+    height: 66px;
+    line-height: 0px; /* IE7 fix */
+    font-size: 1px; /* IE7 fix */
+  }
+
+  div.officetab li div.textlist ul {
+  }
+
+
+div.officetab li div.button li {
+  background: transparent none;
+  float:none;
+  margin:0;
+  padding:0;
+}
+
+  div.officetab li div.list li {
+  }
+
+  div.officetab li div.textlist ul li {
+    height:22px;
+    height: expression('18px');/* FOR IE */
+  }
+  div.officetab li div.textlist ul li:hover {
+    background: transparent url(images/button2_over.png) no-repeat scroll left top;
+  }
+  div.officetab li div.textlist ul li:hover{
+    background: transparent;
+  }
+
+div.officetab li div.button a {
+  background: transparent none;
+  text-decoration: none;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  height: 68px;
+  width: 58px;
+  display: block;
+  margin: auto;
+}
+div.officetab li div.button-sp .button:hover {
+  /* background: transparent url(images/button_over.png) no-repeat scroll left top; */
+  background: linear-gradient(rgba(255, 255, 255, 0.78) 0%,rgba(255, 232, 160, 0.44) 34%,rgba(255, 210, 86, 0.39) 34%,rgba(255, 210, 86, 0.57) 58%, rgba(255, 224, 137, 0.75) 100%);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.78) 0%,rgba(255, 232, 160, 0.44) 34%,rgba(255, 210, 86, 0.39) 34%,rgba(255, 210, 86, 0.57) 58%, rgba(255, 224, 137, 0.75) 100%);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.78) 0%,rgba(255, 232, 160, 0.44) 34%,rgba(255, 210, 86, 0.39) 34%,rgba(255, 210, 86, 0.57) 58%, rgba(255, 224, 137, 0.75) 100%);
+  box-shadow: inset 1px 1px 1px 0px #fff;
+  border-radius: 3px;
+  border: 1px solid #7E7E7E;
+  width: 62px;
+}
+
+  div.officetab li div.list a {
+    width: 24px;
+    height: 20px;
+  }
+  div.officetab li div.list a:hover {
+    background: transparent url(images/button2_over.png) no-repeat scroll left top;
+  }
+
+  div.officetab li div.textlist a {
+    display: block;
+    float: left;
+    height: 20px;
+    margin-right: 6px;
+    padding-right: 5px;
+  }
+  div.officetab li div.textlist a:hover {
+    background: transparent url(images/button3_over.png) no-repeat scroll top right;
+  }
+
+div.officetab li div.button a img {
+  padding: 4px 0 0 0;
+  border: 0;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+  div.officetab li div.list a img {
+    margin: 0;
+    padding: 2px 0 0 4px;
+  }
+
+  div.officetab li div.textlist a img {
+    vertical-align: top;
+    padding: 1px 4px 0 0;
+    display: inline;
+  }
+.button-sp{
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  float: left;
+  cursor: pointer;
+  top: -84px;
+  left: 3px;
+  height: 69px;
+  width: 62px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+div.officetab li div.context a span {
+  background: transparent url(images/dropdown.png) no-repeat scroll 22px 20px;
+  padding-bottom: 7px;
+  margin: 1px 2px 0 2px;
+  border-top: 1px solid transparent;
+}
+div.officetab li div.split:hover a span {
+  border-top-color: #FFF2C7;
+}
+
+div.officetab li div.textlist a span {
+  background: transparent;
+  display: block;
+  height: 20px;
+  line-height: 18px;
+  margin: 0;
+  padding: 1px 0 1px 7px;
+  cursor: default;
+}
+
+div.officetab li div.textlist a:hover span,
+div.officetab li div.textlist a.opened span {
+  background: transparent url(images/button3_over.png) no-repeat;
+}
+
+div.officetab li div.textlist div ul li.dropdown a {
+  background: transparent url(images/dropdown.png) no-repeat scroll 90% 9px;
+  padding-right: 18px;
+}
+
+div.officetab li div.textlist li.dropdown a:hover,
+div.officetab li div.textlist li.dropdown a.opened {
+  background: transparent url(images/button3_over_dropdown.png) no-repeat scroll top right;
+}
+
+div.officetab li div.textlist div ul li.dropdown div {
+  display: none;
+}
+
+/* ======== TEXT BUTTON LIST ===== */
+div.officetab li div.textboxlist {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  float: left;
+  top: -84px;
+  left: 0px;
+  height: 66px;
+  width: auto;
+  overflow: hidden;
+}
+
+div.officetab li div.textboxlist ul {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  z-index: 2;
+  clear: both;
+  
+  height: 66px;
+  line-height: 0px; /* IE7 fix */
+  font-size: 1px; /* IE7 fix */
+}
+
+div.officetab li div.textboxlist li {
+  background: transparent none;
+  float:none;
+  margin:0;
+  padding:0;
+  height:22px;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+div.officetab li div.separator {
+  border-left: 1px solid #9DBFDB;
+  padding-left: 6px;
+  margin-left: 6px;
+}
+
+div.officetab li div.textboxlist img {
+	vertical-align: bottom;
+  margin: 0 2px 0 0;
+}
+
+div.officetab li div.textboxlist input {
+	margin: 0 0 0 4px;
+}

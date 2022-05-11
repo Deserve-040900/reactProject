@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>Test menu</title>
+	<link rel="stylesheet" type="text/css" href="contextMenu.css">
+	<script type="text/javascript"  src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="contextMenu.js"></script>
+</head>
+<body>
+	<div id="menuWrapper">
+		<ul class="sub" id="demoMenu" style="display: none;">
+		<li>Intro</li>
+		<li>Demo</li>
+		<li>Documentation</li>
+		</ul>
+		<div id="menuTrigger" onclick="submenu('menuTrigger','demoMenu');" ></div>
+
+	</div>
+	<div id="menuWrapper">
+		<ul class="sub" id="demoMenu" style="display: none;">
+		<li>Intro2</li>
+		<li>Demo2</li>
+		<li>Documentation2</li>
+		</ul>
+		<div id="menuTrigger" onclick="submenu('menuTrigger2','demoMenu2');" ></div>
+
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+function submenu (menutg,menusb) {
+	var menuTrgr=$('#'+menutg);
+	var menusub='#'+menusb;
+	menuTrgr.contextMenu('menu',menusub,{
+    displayAround:'trigger',
+    verAdjust:''
+	});
+}
+
+ 
+
+</script>
+<style type="text/css">
+#menuWrapper {
+padding: 2px;
+border: 1px solid #3382c0;
+overflow: auto;
+}
+#menuTrigger {
+width: 40px;
+height: 60px;
+background: #3382c0;
+color: #FFF;
+float: right;
+}
+#menuWrapper ul {
+padding: 0px;
+margin: 0px;
+background: #000;
+opacity: 0.8;
+color: #FFF;
+}
+#demoMenu li {
+padding: 5px 30px 5px 30px;
+border-bottom: solid #EEE 1px;
+white-space: nowrap;
+}
+#menuWrapper {
+padding: 2px;
+border: 1px solid #3382c0;
+overflow: auto;
+}
+#menuTrigger2 {
+width: 40px;
+height: 60px;
+background: #3382c0;
+color: #FFF;
+float: right;
+}
+#menuWrapper ul {
+padding: 0px;
+margin: 0px;
+background: #000;
+opacity: 0.8;
+color: #FFF;
+}
+#demoMenu2 li {
+padding: 5px 30px 5px 30px;
+border-bottom: solid #EEE 1px;
+white-space: nowrap;
+}
+</style>
