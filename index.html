@@ -352,16 +352,20 @@
           padding-left: 15px;
           padding-right: 15px;
       }
-      .group-btn .ser:hover
+      .toggle-button
       {
-          transform: scale(1.07);
-          background-color: darkgoldenrod;
-          color: #222;
+          background-color: rgb(80, 75, 75);
+          color: #fff;
+          border-radius: 15%;
       }
-      .group-btn .pro:hover
+      .toggle-button:hover
       {
           transform: scale(1.07);
-          background-color: darksalmon;
+          border-color: darkorange;
+      }
+      .toggle-clicked
+      {
+          background-color: darkorange;
           color: #222;
       }
       /* LOGIN SIGNUP */
@@ -571,6 +575,7 @@
 
   <script type="text/babel">
     const { HashRouter, Switch, Route, Link } = ReactRouterDOM;
+    const { useState } = React;
 
     const { t, i18n } = ReactI18next.useTranslation();
     const resources = {
@@ -616,6 +621,161 @@
         }
       });
 
+      const dataService = [
+        {
+          id: 1,
+          name: "CẮT TÓC",
+          price: "60.000"
+        },
+        {
+          id: 2,
+          name: "CẮT TÓC TRẺ NHỎ",
+          price: "40.000"
+        },
+        {
+          id: 3,
+          name: "LẤY RÁY TAI",
+          price: "30.000"
+        },
+        {
+          id: 4,
+          name: "XẢ TRƯỚC KHI CẮT",
+          price: "10.000"
+        },
+        {
+          id: 5,
+          name: "GỘI ĐẦU",
+          price: "20.000"
+        },
+        {
+          id: 6,
+          name: "RỬA MẶT",
+          price: "20.000"
+        },
+        {
+          id: 7,
+          name: "UỐN + NHUỘM",
+          price: "150.000"
+        },
+        {
+          id: 8,
+          name: "DUỖI + HẤP",
+          price: "120.000"
+        },
+        {
+          id: 9,
+          name: "GỘI + NHUỘM",
+          price: "100.000"
+        }
+      ]
+
+      const dataProduct = [
+        {
+          id: 1,
+          name: "Sunsilk",
+          price: "40.000"
+        },
+        {
+          id: 2,
+          name: "Dove",
+          price: "60.000"
+        },
+        {
+          id: 3,
+          name: "Rejoice",
+          price: "40.000"
+        },
+        {
+          id: 4,
+          name: "Clay mark",
+          price: "20.000"
+        },
+        {
+          id: 5,
+          name: "Dao cạo",
+          price: "10.000"
+        },
+        {
+          id: 6,
+          name: "Bọt cạo",
+          price: "10.000"
+        },
+        {
+          id: 7,
+          name: "Bột nail",
+          price: "70.000"
+        },
+        {
+          id: 8,
+          name: "Tsubaki",
+          price: "80.000"
+        },
+        {
+          id: 9,
+          name: "Polmoline",
+          price: "90.000"
+        },
+        {
+          id: 10,
+          name: "Dầu Bưởi dưỡng tóc",
+          price: "50.000"
+        }
+      ]
+
+      const dataEmployee = [
+        {
+          id: 1,
+          name: "Quách Thành Doanh",
+          gender: "Male",
+          role: "Manager"
+        },
+        {
+          id: 2,
+          name: "Trần Ngọc Minh Ánh",
+          gender: "Female"
+        },
+        {
+          id: 3,
+          name: "Nguyễn Gia Hy",
+          gender: "Male"
+        },
+        {
+          id: 4,
+          name: "Phạm Minh Quốc",
+          gender: "Male"
+        },
+        {
+          id: 5,
+          name: "Nguyễn Thị Hà Xuân",
+          gender: "Female"
+        },
+        {
+          id: 6,
+          name: "Dương Thanh Như",
+          gender: "Female"
+        },
+        {
+          id: 7,
+          name: "Lâm Nhất Huy",
+          gender: "Male"
+        },
+        {
+          id: 8,
+          name: "Nguyễn Trang Linh",
+          gender: "Female"
+        },
+        {
+          id: 9,
+          name: "Nguyễn Ngọc Phương",
+          gender: "Male"
+        },
+        {
+          id: 10,
+          name: "Nguyễn Trần Thanh Tú",
+          gender: "Male"
+        }
+      ]
+
     function MyApp() {
       return <h1>{i18next.t('common')}</h1>;
     }
@@ -624,6 +784,19 @@
     // const root = ReactDOM.createRoot(container);
     // root.render(<MyApp />);
   
+  const BtnChangeColor = ({active = false, onClick, children, ...props}) => {
+    const [state, setState] = useState(active);
+    const toggle = (eve) => {
+      setState(!state);
+      onClick(eve)
+    }
+    return(
+      <button onClick={toggle} className={'toggle-button ' + (state ? 'toggle-clicked' : '')} {...props}>
+        {children}
+      </button>
+    );
+  }
+
   // Menu bar when admin login success
   const NavbarAdmin = () => {
     const openEffect = () => {
@@ -683,7 +856,7 @@
           <p class="text-warning text-bold ml-5">Giá tiền (VND)</p>
         </div>
 
-        <div id="demo" class="carousel col m-auto slide" data-bs-ride="carousel">
+        <div id="demo" class="carousel col m-auto slide">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row w-100 m-2 text-center">
@@ -695,12 +868,10 @@
                 <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
                 <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
                 <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
               </div>
             </div>
             <div class="carousel-item">
-              <div class="row w-100 m-2 text-center">
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
+              <div class="row m-2 text-center bg-danger m-auto">
                 <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
                 <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
                 <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
@@ -933,107 +1104,66 @@
     </div>
   )
 
-  const dataService = [
-    {
-      id: 1,
-      name: "CẮT TÓC",
-      price: "60.000"
-    },
-    {
-      id: 2,
-      name: "CẮT TÓC TRẺ NHỎ",
-      price: "40.000"
-    },
-    {
-      id: 3,
-      name: "LẤY RÁY TAI",
-      price: "30.000"
-    },
-    {
-      id: 4,
-      name: "XẢ TRƯỚC KHI CẮT",
-      price: "10.000"
-    },
-    {
-      id: 5,
-      name: "GỘI ĐẦU",
-      price: "20.000"
-    },
-    {
-      id: 6,
-      name: "RỬA MẶT",
-      price: "20.000"
-    },
-    {
-      id: 7,
-      name: "UỐN + NHUỘM",
-      price: "150.000"
-    },
-    {
-      id: 8,
-      name: "DUỖI + HẤP",
-      price: "120.000"
-    },
-    {
-      id: 9,
-      name: "GỘI + NHUỘM",
-      price: "100.000"
-    }
-  ]
+  const ListService = props => (
+    <div class="row bg-dark mb-3">
+      <div class="col-2 m-auto">
+        <h4 class="ml-3 mb-0" onClick={() => console.log(props.service)}>
+          {props.service}
+        </h4>
+        <p class="text-warning text-bold ml-3" onClick={() => console.log(props.price)}>
+          {props.price} VND
+        </p>
+      </div>
 
-  const Service = ({dataService}) => (
+      <div class="col-10">
+        <div class="d-flex overflow-auto">
+          {dataEmployee.map(emp => (
+            <ListEmployee
+              key = {emp.id}
+              emp = {emp}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+
+  const Service = () => (
     <div>
       <h3>{i18next.t('Service')}</h3>;
+      
+      <div class="container-fluid">
+        {dataService.map(ser => (
+          <ListService
+            key = {ser.id}
+            service = {ser.name} // rename camel case style = variable.name snake case (service = service_name)
+            price = {ser.price}
+          />
+        ))}
+      </div>
+    </div>
+  )
 
-      <div class="row bg-dark mb-3">
-        <div class="col-2 m-auto">
-          <h4 class="text-bold ml-5">Tên dịch vụ sản phẩm</h4>
-          <p class="text-warning text-bold ml-5">Giá tiền (VND)</p>
-        </div>
+  // object 'pro' only accept correct attribute name
+  const ListProduct = ({ pro }) => (
+    <div class="row bg-dark mb-3">
+      <div class="col-2 m-auto">
+        <h4 class="ml-3 mb-0" onClick={() => console.log(pro.name)}>
+          {pro.name}
+        </h4>
+        <p class="text-warning text-bold ml-3" onClick={() => console.log(pro.price)}>
+          {pro.price} VND
+        </p>
+      </div>
 
-        <div id="demo" class="carousel col m-auto slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row w-100 m-2 text-center">
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-                <button class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></button>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row w-100 m-2 text-center">
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-                <div class="col w3-dark-gray w3-round-large p-3 mr-2 mt-2 mb-2 w-100"><b>Hello W3.CSS Layout.</b></div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row w-100 p-3 m-2 text-center">
-                <div class="col bg-warning w-100 p-3 m-2 text-center"><b>demo</b></div>
-                <div class="col bg-warning w-100 p-3 m-2 text-center"><b>demo</b></div>
-                <div class="col bg-warning w-100 p-3 m-2 text-center"><b>demo</b></div>
-              </div>
-            </div>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
+      <div class="col-10">
+        <div class="d-flex overflow-auto">
+          {dataEmployee.map(emp => (
+            <ListEmployee
+              key = {emp.id}
+              emp = {emp}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -1042,12 +1172,36 @@
   const Product = () => (
     <div>
       <h3>{i18next.t('Product')}</h3>;
+
+      <div class="container-fluid">
+        {dataProduct.map(pro => (
+          <ListProduct
+            key = {pro.id}
+            pro = {pro} // props name = variable name pass all data from array dataProduct
+          />
+        ))}
+      </div>
     </div>
   )
 
+  const ListEmployee = ({emp}) => (
+    <BtnChangeColor style={{margin: 5, width: 100, height: 110}}>
+      <div class="text-bold">{emp.name}</div>
+    </BtnChangeColor>
+  )
+  
   const Employee = () => (
     <div>
       <h3>{i18next.t('Employee')}</h3>;
+
+      <div class="container-fluid">
+        {dataEmployee.map(emp => (
+          <ListEmployee
+            key = {emp.id}
+            emp = {emp} // props name = variable name pass all data from array dataProduct
+          />
+        ))}
+      </div>
     </div>
   )
 
@@ -1094,7 +1248,7 @@
     }
 
     const closeEffect = () => {
-      document.getElementById("myRightMenu").style.visibility = "hidden";
+      document.getElementById("myRightMenu").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
 
@@ -1104,14 +1258,14 @@
           {/* Sidebar */}
           <div className="w3-sidebar w3-bar-block w3-black w3-animate-right" style={{display: 'none', right: 0, zIndex: 5}} id="myRightMenu">
             <button onClick={closeEffect} className="w3-bar-item w3-button w3-large">Close ×</button>
-            <a href="#" className="w3-bar-item w3-button">Link 1</a>
-            <a href="#" className="w3-bar-item w3-button">Link 2</a>
+            <a href="#" className="w3-bar-item w3-button"><i class='fas fa-user-circle'></i> Avatar user</a>
             <Link to="/" class="nav-link">Home</Link>
             <Link to="/about" class="nav-link">About</Link>
             <Link to="/topics" class="nav-link">Topics</Link>
             <Link to="/contact" class="nav-link">Contact</Link>
             <Link to="/login" class="nav-link">Login</Link>
             <Link to="/signup" class="nav-link">Register</Link>
+            <Link to="/employee" class="nav-link">Employees</Link>
           </div>
           {/* Page Content */}
           <div className="w3-overlay" onClick={closeEffect} style={{cursor: 'pointer'}} id="myOverlay" />
@@ -1120,8 +1274,9 @@
             <div className="group-btn">
               <div class="w3-button w3-left w3-circle bg-light mb-2 mt-2 ml-3"><Link to="/" className="w3-button text-center text-bold p-0 ml-1 mr-1">LO<br/>GO</Link></div>
               <div class="w3-left w3-center mb-1 mt-1 ml-5">
-                <Link class="ser w3-button w3-round-medium w-100" to="/services"><i class='far fa-list-alt'></i>  Dịch Vụ</Link><br/>
-                <Link className="pro w3-button w3-round-medium mt-1" to="/products"><i class='fas fa-box-open'></i>  Sản Phẩm</Link>
+                <Link classname="ser w3-button w3-round-medium w-100" to="/services"><i classname='far fa-list-alt'></i>  Dịch Vụ</Link>
+                <br/>
+                <Link className="w3-button w3-round-medium mt-1" to="/products"><i class='fas fa-box-open'></i>  Sản Phẩm</Link>
               </div>
               <button className="w3-button w3-xlarge w3-right mb-3 mt-3" onClick={openEffect}>☰</button>
             </div>
@@ -1135,6 +1290,7 @@
           <Route path="/signup" component={Signup}/>
           <Route path="/services" component={Service}/>
           <Route path="/products" component={Product}/>
+          <Route path="/employee" component={Employee}/>
         </>
       </HashRouter>
     );
