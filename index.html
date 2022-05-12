@@ -589,7 +589,13 @@
           "Signup" : "Register now",
           "Service": "Our Services",
           "Product": "Our Products",
-          "Employee": "Our staff"
+          "Employee": "Our staff",
+          "Receipt": "Service bill",
+          "Income": "Daily income",
+          "Leave": "Leave application form",
+          "Advance": "Cash advance",
+          "Rules": "Rules for applying for leave",
+          "Payment": "Pay and issue invoices"
         }
       },
       vi: {
@@ -602,7 +608,13 @@
           "Signup": "Đăng ký",
           "Service": "Dịch vụ của chúng tôi",
           "Product": "Sản phẩm của chúng tôi",
-          "Employee": "Đội ngũ nhân viên của chúng tôi"
+          "Employee": "Đội ngũ nhân viên của chúng tôi",
+          "Receipt": "Hóa đơn thanh toán dịch vụ",
+          "Income": "Thu nhập trong ngày",
+          "Leave": "Phiếu xin nghỉ phép",
+          "Advance": "Ứng trước tiền lương tháng",
+          "Rules": "Quy định xin nghỉ phép",
+          "Payment": "Thanh toán và xuất hóa đơn"
         }
       }
     };
@@ -727,52 +739,111 @@
           id: 1,
           name: "Quách Thành Doanh",
           gender: "Male",
-          role: "Manager"
+          level: "Manager",
+          type: "Official staff",
+          code: "M001",
+          email: "QuachTD@gmail.com",
+          phone: "0909 111 111",
+          status: 1
         },
         {
           id: 2,
           name: "Trần Ngọc Minh Ánh",
-          gender: "Female"
+          gender: "Female",
+          level: "Accountant",
+          type: "Official staff",
+          code: "A001",
+          email: "MinhAnhTranNgoc@gmail.com",
+          phone: "0909 222 222",
+          status: 1
         },
         {
           id: 3,
           name: "Nguyễn Gia Hy",
-          gender: "Male"
+          gender: "Male",
+          level: "Specialist staff",
+          type: "Official staff",
+          code: "S002",
+          email: "TonyGia@gmail.com",
+          phone: "0909 333 333",
+          status: 1
         },
         {
           id: 4,
           name: "Phạm Minh Quốc",
-          gender: "Male"
+          gender: "Male",
+          level: "Specialist staff",
+          type: "Official staff",
+          code: "S001",
+          email: "MinhQuoc@gmail.com",
+          phone: "0909 444 444",
+          status: 1
         },
         {
           id: 5,
           name: "Nguyễn Thị Hà Xuân",
-          gender: "Female"
+          gender: "Female",
+          level: "Student",
+          type: "Apprentice",
+          code: "#",
+          email: "XuanNguyen040900@gmail.com",
+          phone: "0909 555 555",
+          status: 1
         },
         {
           id: 6,
           name: "Dương Thanh Như",
-          gender: "Female"
+          gender: "Female",
+          level: "Amateur staff",
+          type: "Official staff",
+          code: "A002",
+          email: "Ruyang0509@gmail.com",
+          phone: "0909 666 666",
+          status: 1
         },
         {
           id: 7,
           name: "Lâm Nhất Huy",
-          gender: "Male"
+          gender: "Male",
+          level: "Specialist staff",
+          type: "Official staff",
+          code: "S003",
+          email: "LamNhatHuy@gmail.com",
+          phone: "0909 777 777",
+          status: 1
         },
         {
           id: 8,
           name: "Nguyễn Trang Linh",
-          gender: "Female"
+          gender: "Female",
+          level: "Student",
+          type: "Apprentice",
+          code: "#",
+          email: "TrangLink@gmail.com",
+          phone: "0909 888 888",
+          status: 1
         },
         {
           id: 9,
           name: "Nguyễn Ngọc Phương",
-          gender: "Male"
+          gender: "Male",
+          level: "Amateur staff",
+          type: "Part-time",
+          code: "A001",
+          email: "NgocPhuongNG@gmail.com",
+          phone: "0909 999 999",
+          status: 1
         },
         {
           id: 10,
           name: "Nguyễn Trần Thanh Tú",
-          gender: "Male"
+          gender: "Male",
+          level: "Student",
+          type: "Apprentice",
+          code: "#",
+          email: "ThanhTuNguyen123@gmail.com",
+          phone: "0909 101 010",
+          status: 1
         }
       ]
 
@@ -816,8 +887,7 @@
           {/* Sidebar */}
           <div className="w3-sidebar w3-bar-block w3-black w3-animate-right" style={{display: 'none', right: 0, zIndex: 5}} id="myRightMenu">
             <button onClick={closeEffect} className="w3-bar-item w3-button w3-large">Close ×</button>
-            <a href="#" className="w3-bar-item w3-button">Link 1</a>
-            <a href="#" className="w3-bar-item w3-button">Link 2</a>
+            <a href="#" className="w3-bar-item w3-button"><i class='fas fa-user-circle'></i> Avatar Admin</a>
             <Link to="/" class="nav-link">Home</Link>
             <Link to="/about" class="nav-link">About</Link>
             <Link to="/topics" class="nav-link">Topics</Link>
@@ -826,12 +896,15 @@
           </div>
           {/* Page Content */}
           <div className="w3-overlay" onClick={closeEffect} style={{cursor: 'pointer'}} id="myOverlay" />
+          
           <div className="w3-bar w3-black w3-animate-top">
-            <div className="w3-container">
-              <div><Link to="/" className="w3-button w3-large w3-left">Logo</Link></div>
-              <a class="w3-button w3-large w3-left" href="#">Dịch Vụ</a>
-              <a className="w3-button w3-large w3-left">Sản Phẩm</a>
-              <button className="w3-button w3-xlarge w3-right" onClick={openEffect}>☰</button>
+            <div className="group-btn">
+              <div class="w3-button w3-left w3-circle bg-light mb-2 mt-2 ml-3"><Link to="/" className="w3-button text-center text-bold p-0 ml-1 mr-1">LO<br/>GO</Link></div>
+              <div class="w3-left w3-center mb-1 mt-1 ml-5">
+                <Link classname="w3-button w3-round-medium w-100" to="/receipt"><i class='far fa-list-alt'></i>  Hóa Đơn</Link><br/>
+                <Link className="w3-button w3-round-medium mt-1" to="/income"><i class='fas fa-box-open'></i>  Thu Nhập</Link><br/>
+              </div>
+              <button className="w3-button w3-xlarge w3-right mb-3 mt-3" onClick={openEffect}> <i class="fa fa-navicon"></i> </button>
             </div>
           </div>
 
@@ -840,10 +913,86 @@
           <Route path="/topics" component={Topics}/>
           <Route path="/login" component={Login}/>
           <Route path="/contact" component={Contact}/>
+          <Route path="/receipt" component={Receipt}/>
+          <Route path="/income" component={Income}/>
         </>
       </HashRouter>
     );
   }
+
+  const Receipt = () => (
+    <h4>{i18next.t('Receipt')}</h4>
+  )
+
+  const Income = () => (
+    <h4>{i18next.t('Income')}</h4>
+  )
+
+  // Menu bar when user login success
+  const NavbarUser = () => {
+    const openEffect = () => {
+      document.getElementById("myRightMenu").style.display = "block";
+      document.getElementById("myRightMenu").style.width = "50%";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    const closeEffect = () => {
+      document.getElementById("myRightMenu").style.visibility = "hidden";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    return(
+      <HashRouter>
+        <>
+          {/* Sidebar */}
+          <div className="w3-sidebar w3-bar-block w3-black w3-animate-right" style={{display: 'none', right: 0, zIndex: 5}} id="myRightMenu">
+            <button onClick={closeEffect} className="w3-bar-item w3-button w3-large">Close ×</button>
+            <a href="#" className="w3-bar-item w3-button"><i class='fas fa-user-circle'></i> Avatar User</a>
+            <Link to="/" class="nav-link">Home</Link>
+            <Link to="/about" class="nav-link">About</Link>
+            <Link to="/topics" class="nav-link">Topics</Link>
+            <Link to="/contact" class="nav-link">Contact</Link>
+            <Link to="/login" class="nav-link">Login</Link>
+          </div>
+          {/* Page Content */}
+          <div className="w3-overlay" onClick={closeEffect} style={{cursor: 'pointer'}} id="myOverlay" />
+          
+          <div className="w3-bar w3-black w3-animate-top">
+            <div className="group-btn">
+              <div class="w3-button w3-left w3-circle bg-light mb-2 mt-2 ml-3"><Link to="/" className="w3-button text-center text-bold p-0 ml-1 mr-1">LO<br/>GO</Link></div>
+              <div class="w3-left w3-center mb-1 mt-1 ml-5">
+                <Link classname="w3-button w3-round-medium w-100" to="/leave"><i class='far fa-list-alt'></i>  Nghỉ Phép</Link><br/>
+                <Link className="w3-button w3-round-medium mt-1" to="/advance"><i class='fas fa-box-open'></i>  Ứng Tiền</Link><br/>
+              </div>
+              <Link className="w3-button w3-round-medium mt-1" to="/rules"><i class='fas fa-box-open'></i>  Nội Quy</Link>
+              <button className="w3-button w3-xlarge w3-right mb-3 mt-3" onClick={openEffect}> <i class="fa fa-navicon"></i> </button>
+            </div>
+          </div>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/topics" component={Topics}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/leave" component={OnLeave}/>
+          <Route path="/advance" component={Advance}/>
+          <Route path="/rules" component={Rules}/>
+        </>
+      </HashRouter>
+    );
+  }
+
+  const OnLeave = () => (
+    <h4>{i18next.t('Leave')}</h4>
+  )
+
+  const Advance = () => (
+    <h4>{i18next.t('Advance')}</h4>
+  )
+
+  const Rules = () => (
+    <h4>{i18next.t('Rules')}</h4>
+  )
 
   // react-horizontal-scrolling-menu
   const Home = () => (
@@ -1105,24 +1254,26 @@
   )
 
   const ListService = props => (
-    <div class="row bg-dark mb-3">
-      <div class="col-2 m-auto">
-        <h4 class="ml-3 mb-0" onClick={() => console.log(props.service)}>
-          {props.service}
-        </h4>
-        <p class="text-warning text-bold ml-3" onClick={() => console.log(props.price)}>
-          {props.price} VND
-        </p>
-      </div>
+    <div class="w3-container">
+      <div class="row w3-round-large bg-dark m-auto mb-3">
+        <div class="col-2">
+          <h4 class="ml-3 mb-0" onClick={() => console.log(props.service)}>
+            {props.service}
+          </h4>
+          <p class="text-warning text-bold ml-3" onClick={() => console.log(props.price)}>
+            {props.price} VND
+          </p>
+        </div>
 
-      <div class="col-10">
-        <div class="d-flex overflow-auto">
-          {dataEmployee.map(emp => (
-            <ListEmployee
-              key = {emp.id}
-              emp = {emp}
-            />
-          ))}
+        <div class="col-10">
+          <div class="d-flex overflow-auto">
+            {dataEmployee.map(emp => (
+              <ListEmployee
+                key = {emp.id}
+                emp = {emp}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -1141,29 +1292,33 @@
           />
         ))}
       </div>
+
+      <Footer/>
     </div>
   )
 
   // object 'pro' only accept correct attribute name
   const ListProduct = ({ pro }) => (
-    <div class="row bg-dark mb-3">
-      <div class="col-2 m-auto">
-        <h4 class="ml-3 mb-0" onClick={() => console.log(pro.name)}>
-          {pro.name}
-        </h4>
-        <p class="text-warning text-bold ml-3" onClick={() => console.log(pro.price)}>
-          {pro.price} VND
-        </p>
-      </div>
+    <div class="w3-container">
+      <div class="row w3-round-large bg-dark m-auto mb-3">
+        <div class="col-2">
+          <h4 class="ml-3 mb-0" onClick={() => console.log(pro.name)}>
+            {pro.name}
+          </h4>
+          <p class="text-warning text-bold ml-3" onClick={() => console.log(pro.price)}>
+            {pro.price} VND
+          </p>
+        </div>
 
-      <div class="col-10">
-        <div class="d-flex overflow-auto">
-          {dataEmployee.map(emp => (
-            <ListEmployee
-              key = {emp.id}
-              emp = {emp}
-            />
-          ))}
+        <div class="col-10">
+          <div class="d-flex overflow-auto">
+            {dataEmployee.map(emp => (
+              <ListEmployee
+                key = {emp.id}
+                emp = {emp}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -1181,24 +1336,60 @@
           />
         ))}
       </div>
+      <Footer/>
     </div>
   )
 
   const ListEmployee = ({emp}) => (
-    <BtnChangeColor style={{margin: 5, width: 100, height: 110}}>
+    <BtnChangeColor style={{margin: 10, width: 130, height: 110}}>
       <div class="text-bold">{emp.name}</div>
     </BtnChangeColor>
   )
+
+  const ViewEmployee = ({e}) => {
+    <div class="row bg-light text-black border-top border-bottom" onClick={() => console.log(e.name)}>
+      <div class="col">
+        <p>{e.name}</p>
+      </div>
+      <div class="col">
+        <p>{e.gender}</p>
+      </div>
+      <div class="col">
+        <p>{e.level}</p>
+      </div>
+      <div class="col">
+        <p>{e.type}</p>
+      </div>
+      <div class="col">
+        <p>{e.code}</p>
+      </div>
+      <div class="col">
+        <p>{e.email}</p>
+      </div>
+      <div class="col">
+        <p>{e.phone}</p>
+      </div>
+      <div class="col">
+        <p>{e.status}</p>
+      </div>
+      <div class="col-1 bg-danger">
+        <div class="bg-info">
+          <a href="#" class="text-blue bg-primary">Xóa</a>
+          <a href="#" class="text-pink bg-primary">Sửa</a>
+        </div>
+      </div>
+    </div>
+  }
   
   const Employee = () => (
     <div>
       <h3>{i18next.t('Employee')}</h3>;
 
       <div class="container-fluid">
-        {dataEmployee.map(emp => (
-          <ListEmployee
-            key = {emp.id}
-            emp = {emp} // props name = variable name pass all data from array dataProduct
+        {dataEmployee.map(e => (
+          <ViewEmployee
+            key = {e.id}
+            e = {e}
           />
         ))}
       </div>
@@ -1239,6 +1430,38 @@
     </div>
   )
 
+  const Footer = () => (
+    <HashRouter>
+      <div>
+        <div class="container-fluid bg-dark">
+          <div class="row">
+            <div class="col-2">
+              <div class="d-flex justify-content-center align-content-center">
+                <button class="btn btn-circle btn-light mt-3"><i class='fas fa-redo-alt spinner-border' style={{fontSize: 30}}></i></button>
+              </div>
+            </div>
+            <div class="col">
+              <h3 class="text-warning text-center"> Giá Tiền Thanh Toán </h3>
+            </div>
+            <div class="col-2">
+              <div class="d-flex justify-content-center align-content-center">
+                <Link to="/payment" class="btn btn-success w3-round-medium pt-0 pb-0 mt-2">
+                  <h4 class="pl-3 pr-3"><b> Thanh Toán </b></h4>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Route path="/payment" component={Payment}/>
+      </div>
+    </HashRouter>
+  )
+
+  const Payment = () => (
+    <h3>{i18next.t('Payment')}</h3>
+  )
+  
   // Navbar master display when you are not logged in
   const App = () => {
     const openEffect = () => {
@@ -1256,9 +1479,9 @@
       <HashRouter>
         <>
           {/* Sidebar */}
-          <div className="w3-sidebar w3-bar-block w3-black w3-animate-right" style={{display: 'none', right: 0, zIndex: 5}} id="myRightMenu">
+          <div className="w3-sidebar w3-bar-block bg-dark w3-animate-right" style={{display: 'none', right: 0, zIndex: 5}} id="myRightMenu">
             <button onClick={closeEffect} className="w3-bar-item w3-button w3-large">Close ×</button>
-            <a href="#" className="w3-bar-item w3-button"><i class='fas fa-user-circle'></i> Avatar user</a>
+            <a href="#" className="w3-bar-item w3-button"><i class='fas fa-user-circle'></i> Avatar Master</a>
             <Link to="/" class="nav-link">Home</Link>
             <Link to="/about" class="nav-link">About</Link>
             <Link to="/topics" class="nav-link">Topics</Link>
@@ -1267,18 +1490,18 @@
             <Link to="/signup" class="nav-link">Register</Link>
             <Link to="/employee" class="nav-link">Employees</Link>
           </div>
-          {/* Page Content */}
+          
           <div className="w3-overlay" onClick={closeEffect} style={{cursor: 'pointer'}} id="myOverlay" />
+          {/* Page Content */}
 
           <div className="w3-bar w3-black w3-animate-top">
             <div className="group-btn">
               <div class="w3-button w3-left w3-circle bg-light mb-2 mt-2 ml-3"><Link to="/" className="w3-button text-center text-bold p-0 ml-1 mr-1">LO<br/>GO</Link></div>
               <div class="w3-left w3-center mb-1 mt-1 ml-5">
-                <Link classname="ser w3-button w3-round-medium w-100" to="/services"><i classname='far fa-list-alt'></i>  Dịch Vụ</Link>
-                <br/>
+                <Link classname="w3-button w3-round-medium w-100" to="/services"><i class='far fa-list-alt'></i>  Dịch Vụ</Link><br/>
                 <Link className="w3-button w3-round-medium mt-1" to="/products"><i class='fas fa-box-open'></i>  Sản Phẩm</Link>
               </div>
-              <button className="w3-button w3-xlarge w3-right mb-3 mt-3" onClick={openEffect}>☰</button>
+              <button className="w3-button w3-xlarge w3-right mb-3 mt-3" onClick={openEffect}> <i class="fa fa-navicon"></i> </button>
             </div>
           </div>
 
